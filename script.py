@@ -18,7 +18,9 @@ df = pd.read_csv(
         'Country',
         'Gender',
         'ConvertedCompYearly',
-        'OpSysProfessional use'
+        'OpSysProfessional use',
+        # 'WebframeHaveWorkedWith',
+        # 'WebframeWantToWorkWith'
     ])
 
 
@@ -182,13 +184,13 @@ print(
 """
 5. STATIC ANALYSIS
 """
-ycomp_cro = groupedby_country.get_group('Croatia')['ConvertedCompYearly'].values[:90]
+ycomp_cro = groupedby_country.get_group('Croatia')['ConvertedCompYearly'].values[:50]
 ycomp_cro_size = len(ycomp_cro)
 
-ycomp_ph = groupedby_country.get_group('Philippines')['ConvertedCompYearly'].values[:90]
+ycomp_ph = groupedby_country.get_group('Philippines')['ConvertedCompYearly'].values[:50]
 ycomp_ph_size = len(ycomp_ph)
 
-ycomp_cl = groupedby_country.get_group('Chile')['ConvertedCompYearly'].values[:90]
+ycomp_cl = groupedby_country.get_group('Chile')['ConvertedCompYearly'].values[:50]
 ycomp_cl_size = len(ycomp_cl)
 
 
@@ -320,3 +322,15 @@ plt.xlabel('Percentage')
 plt.ylabel('Gender')
 plt.title('Gender distribution')
 plt.show()
+
+"""
+7. Tableau data
+"""
+# mean_compensationby_country = groupedby_country['ConvertedCompYearly'].mean().round()
+# mean_compensationby_country.to_csv('data/mean_compensationby_country.csv', index=True)
+
+# workedwithwf_count = df['WebframeHaveWorkedWith'].str.split(';').explode().value_counts().sort_values(ascending=False)
+# workedwithwf_count.to_csv('data/workedwithwf.csv', index=True)
+
+# wanttoworkwithwf_count = df['WebframeWantToWorkWith'].str.split(';').explode().value_counts().sort_values(ascending=False)
+# wanttoworkwithwf_count.to_csv('data/wanttoworkwithwf.csv', index=True)
